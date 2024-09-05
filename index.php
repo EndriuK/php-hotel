@@ -55,11 +55,49 @@ $hotels = [
 </head>
 
 <body>
-    <?php
-    foreach ($hotels as $hotel) {
-        var_dump($hotel);
-    }
-    ?>
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">Dati</h2>
+            <?php foreach ($hotels as $hotel) { ?>
+                <?php var_dump($hotel); ?>
+
+            <?php } ?>
+        </div>
+        <div class="container">
+            <h2 class="my-4 text-center">Lista degli Hotel</h2>
+            <table class="table">
+                <thead>
+                    <?php foreach ($hotels[0] as $key => $value) { ?>
+                        <th>
+                            <?php echo $key ?>
+                        </th>
+                    <?php } ?>
+                </thead>
+                <tbody>
+                    <?php foreach ($hotels as $hotel) { ?>
+                        <tr>
+                            <td><?php echo $hotel['name'] ?></td>
+                            <td><?php echo $hotel['description'] ?></td>
+                            <td>
+                                <?php if ($hotel['parking']) { ?>
+                                    <i class="fa-solid fa-check"></i>
+                                <?php } else { ?>
+                                    <i class="fa-solid fa-xmark"></i>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <?php echo $hotel['vote'] ?>
+                            </td>
+                            <td>
+                                <?php echo $hotel['distance_to_center'] ?>
+                            </td>
+                        </tr>
+
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
