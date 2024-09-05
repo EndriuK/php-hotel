@@ -68,7 +68,7 @@ $hotels = [
             <table class="table">
                 <thead>
                     <?php foreach ($hotels[0] as $key => $value) { ?>
-                        <th>
+                        <th class="text-center">
                             <?php echo $key ?>
                         </th>
                     <?php } ?>
@@ -76,23 +76,12 @@ $hotels = [
                 <tbody>
                     <?php foreach ($hotels as $hotel) { ?>
                         <tr>
-                            <td><?php echo $hotel['name'] ?></td>
-                            <td><?php echo $hotel['description'] ?></td>
-                            <td>
-                                <?php if ($hotel['parking']) { ?>
-                                    <i class="fa-solid fa-check"></i>
-                                <?php } else { ?>
-                                    <i class="fa-solid fa-xmark"></i>
-                                <?php } ?>
-                            </td>
-                            <td>
-                                <?php echo $hotel['vote'] ?>
-                            </td>
-                            <td>
-                                <?php echo $hotel['distance_to_center'] ?>
-                            </td>
+                            <td class="text-center"><?php echo $hotel['name'] ?></td>
+                            <td class="text-center"><?php echo $hotel['description'] ?></td>
+                            <td class="text-center"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
+                            <td class="text-center"><?php echo $hotel['vote'] ?></td>
+                            <td class="text-center"><?php echo $hotel['distance_to_center'] ?></td>
                         </tr>
-
                     <?php } ?>
                 </tbody>
             </table>
